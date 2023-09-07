@@ -1,0 +1,59 @@
+\documentclass{scrartcl}
+
+\usepackage{
+	booktabs,
+	fontspec,	
+	graphicx,
+	microtype,
+	fancyvrb,
+	siunitx,
+	tabu,
+}
+\DefineShortVerb{\|}
+
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+
+\title{\LaTeX~for thesis\\ What You Should Do And What Not To Do}
+\subtitle{And What You Did Not Know You Did Not Know}
+\author{Arno L.~Trautmann}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Some things I always recommend. Maybe people listen more if it's writen …
+This document is based on my nearly 20 years of experience and working with typography in \LaTeX~and related systems. While some people tend to argue that typography is a question of style – it's not. There is a reason we use letters the way we do – we are used to their shape. In the same way typography should support the content of your important thesis to make it easy to read and understand.
+\end{abstract}
+
+\section{Structural Things}
+
+\section{Font-related Things}
+\begin{tabu*}{X[.5,l]lX}
+\toprule
+what & how & why/comment\\\midrule
+caption of table & |\captionabove{}| & must \emph{always} go \emph{above} the table! \\\midrule
+\SI{5.4(6)}{m\per s\squared}\qquad $5.4(6) m/s^2$ & |\SI{5.4(6)}{m\per s\squared}| & ensure proper font and spacings. needs |siunitx| package, errors can also be given as ±.\\\midrule
+
+\bottomrule
+\end{tabu*}
+
+\section{Small Typographic Things}
+Basics: \TeX~knows different spaces, dashes, etc. By default in american typography after a full stop (|.|) a sligthly larger space is inserted to give a bit more separation between full sentences. If you use an abbreviation, however, you do not want that to not tear appart the sentence. If the abbreviation conists of two words (id est, exempli gratia) the space between them should be a small space. See below.
+
+\begin{tabu*}{X[.5,l]XX[l]}
+\toprule
+what & how & why/comment\\
+\midrule
+e.\,g.~an apple \qquad e.g. an apple \qquad e. g. an apple & |e.\,g.~an apple| & \\\midrule
+Dr.~Trautmann \qquad Dr. Trautmann & |Dr.~Trautmann| & \\\midrule
+this – or that \qquad this - or that  & |this -- or that| \qquad |this – or that| & proper em dash \qquad\qquad\qquad unicode input as em dash\\\midrule
+“quote” \qquad\qquad "quote" & |“quote”| & \\\midrule
+
+\\
+\bottomrule
+\end{tabu*}
+
+\end{document}
+
